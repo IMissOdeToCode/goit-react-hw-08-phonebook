@@ -1,4 +1,4 @@
-import css from './RegisterPage.module.scss';
+// import css from './RegisterPage.module.scss';
 
 const RegisterPage = () => {
   return <div>RegisterPage</div>;

@@ -1,4 +1,4 @@
-import css from './ContactsPage.module.scss';
+// import css from './ContactsPage.module.scss';
 
 const ContactsPage = () => {
   return <div>ContactsPage</div>;
