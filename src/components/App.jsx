@@ -1,11 +1,22 @@
 import { Routes, Route } from 'react-router-dom';
+
+import { useEffect } from 'react';
+import { useDispatch } from 'react-redux';
+
+import { current } from 'redux/auth/auth-operations';
+
 import Navbar from 'modules/Navbar/Navbar';
-import PhoneBookPage from './pages/PhoneBookPage/PhoneBookPage';
-import RegisterPage from './pages/RegisterPage/RegisterPage';
-import LoginPage from './pages/LoginPage/LoginPage';
-import ContactsPage from './pages/ContactsPage/ContactsPage';
+import PhoneBookPage from '../pages/PhoneBookPage/PhoneBookPage';
+import RegisterPage from '../pages/RegisterPage/RegisterPage';
+import LoginPage from '../pages/LoginPage/LoginPage';
+import ContactsPage from '../pages/ContactsPage/ContactsPage';
 
 export const App = () => {
+  // const dispatch = useDispatch();
+  // useEffect(() => {
+  //   dispatch(current);
+  // }, [dispatch]);
+
   return (
     <>
       <Navbar />

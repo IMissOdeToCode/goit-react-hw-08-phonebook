@@ -1,18 +1,23 @@
-import { NavLink } from 'react-router-dom';
-import css from './Navbar.module.scss';
+import { useSelector } from 'react-redux';
 
-import navbarItems from './navbarItems';
+import NavbarMenu from './NavbarMenu/NavbarMenu';
+import NavbarAuth from './NavbarAuth/NavbarAuth';
+import NavbarUser from './NavbarUser/NavbarUser';
+
+import { isUserLogin } from 'redux/auth/auth-selector';
+
+import css from '../Navbar/Navbar.module.scss';
 
 const Navbar = () => {
-  const elements = navbarItems.map(({ id, text, link }) => (
-    <li key={id}>
-      <NavLink className={css.link} to={link}>
-        {text}
-      </NavLink>
-    </li>
-  ));
+  const isLogin = useSelector(isUserLogin);
 
-  return <ul className={css.menu}>{elements}</ul>;
+  return (
+    <div className={css.navbar}>
+      <NavbarMenu />
+      {!isLogin && <NavbarAuth />}
+      {isLogin && <NavbarUser />}
+    </div>
+  );
 };
 
 export default Navbar;

@@ -5,6 +5,7 @@ const useForm = ({ initialState, onSubmit }) => {
 
   const handleChange = ({ target }) => {
     const { name, value } = target;
+
     setState(prevState => {
       return { ...prevState, [name]: value };
     });
