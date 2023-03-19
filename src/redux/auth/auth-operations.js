@@ -25,6 +25,7 @@ export const login = createAsyncThunk(
     }
   }
 );
+
 export const current = createAsyncThunk(
   'auth/current',
   async (_, { rejectWithValue, getState }) => {
@@ -37,11 +38,23 @@ export const current = createAsyncThunk(
     }
   },
   {
-    condition: (_, getState) => {
+    condition: (_, { getState }) => {
       const { auth } = getState();
       if (!auth.token) {
         return false;
       }
     },
+  }
+);
+
+export const logout = createAsyncThunk(
+  'auth/logout',
+  async (_, { rejectWithValue }) => {
+    try {
+      const data = await api.logout();
+      return data;
+    } catch ({ response }) {
+      return rejectWithValue(response);
+    }
   }
 );

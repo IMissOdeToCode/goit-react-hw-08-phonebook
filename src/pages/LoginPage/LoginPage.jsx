@@ -1,8 +1,6 @@
-import { useSelector, useDispatch } from 'react-redux';
-import { Navigate } from 'react-router-dom';
+import { useDispatch } from 'react-redux';
 
 import { login } from 'redux/auth/auth-operations';
-import { isUserLogin } from 'redux/auth/auth-selector';
 
 import LoginForm from 'modules/LoginForm/LoginForm';
 
@@ -13,12 +11,6 @@ const LoginPage = () => {
   const handleLogin = data => {
     dispatch(login(data));
   };
-
-  const isLogin = useSelector(isUserLogin);
-
-  if (isLogin) {
-    return <Navigate to="/contacts" />;
-  }
 
   return (
     <>

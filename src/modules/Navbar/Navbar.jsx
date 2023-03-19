@@ -13,7 +13,8 @@ const Navbar = () => {
 
   return (
     <div className={css.navbar}>
-      <NavbarMenu />
+      {isLogin && <NavbarMenu />}
+      {/* <NavbarMenu /> */}
       {!isLogin && <NavbarAuth />}
       {isLogin && <NavbarUser />}
     </div>

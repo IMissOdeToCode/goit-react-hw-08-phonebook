@@ -6,8 +6,9 @@ import { current } from 'redux/auth/auth-operations';
 const AuthLayout = ({ children }) => {
   const dispatch = useDispatch();
   useEffect(() => {
-    dispatch(current);
+    dispatch(current());
   }, [dispatch]);
+
   return <>{children}</>;
 };
 
